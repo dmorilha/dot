@@ -1,0 +1,28 @@
+
+yroot_mount() {
+
+	if [[ -x /home/y/bin/yroot && -d /data ]]; then
+
+		echo "Mounting yroot directories";
+
+		/home/y/bin/yroot --list |
+			awk '{print $1;}' |
+			while read yroot; do
+				/home/y/bin/yroot --mount $yroot /data >/dev/null 2>&1;
+
+				if [ $? -ne 0 ]; then
+					echo -en "\e[31m";
+				else
+					echo -en "\e[0m";
+				fi;
+
+				echo -e "${yroot}\e[0m"
+			done;
+
+	fi;
+
+	echo -e "\e[0m";
+
+}
+
+yroot_mount
