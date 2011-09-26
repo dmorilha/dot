@@ -31,7 +31,6 @@ else
 
 fi;
 
-
 [ -r "$HOME/.bashrc.yahoo" ] && source "$HOME/.bashrc.yahoo"
 [ -r "${HOME}/.bashrc.local" ] && source "${HOME}/.bashrc.local"
 
@@ -67,3 +66,6 @@ if [ -n $VIM_BINARY ]; then
 
 	export SVN_EDITOR=${SNV_EDITOR:-${VIM_BINARY}}
 fi;
+
+[ -n $SSH_BINARY ] && alias ssh=$SSH_BINARY && export SVN_SSH=$SSH_BINARY;
+[ -n $SCP_BINARY ] && alias scp=$SCP_BINARY;
