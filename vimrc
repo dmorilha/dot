@@ -123,8 +123,6 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 
-
-
-
+filetype plugin on
 
 source $HOME/.vimrc.local
