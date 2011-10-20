@@ -6,7 +6,7 @@ if [ ${HOSTNAME/%.yahoo.com/} != ${HOSTNAME} ]; then
 	export PATH="/home/y/bin:${PATH}";
 
 	[ -x /usr/local/bin/yssh ] && export SSH_BINARY='/usr/local/bin/yssh';
-	[ -x /usr/local/bin/yscp ] && export SCP_BINARY='/usr/local/bin/yssh';
+	[ -x /usr/local/bin/yscp ] && export SCP_BINARY='/usr/local/bin/yscp';
 	[ -x /home/y/bin/vim ] && export VIM_BINARY='/home/y/bin/vim';
 
 	export R3HOME=/data/web/r3;
