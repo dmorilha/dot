@@ -67,5 +67,5 @@ if [ -n $VIM_BINARY ]; then
 	export SVN_EDITOR=${SNV_EDITOR:-${VIM_BINARY}}
 fi;
 
-[ -n $SSH_BINARY ] && alias ssh=$SSH_BINARY && export SVN_SSH=$SSH_BINARY;
-[ -n $SCP_BINARY ] && alias scp=$SCP_BINARY;
+[ -n "$SSH_BINARY" ] && alias ssh=$SSH_BINARY && export SVN_SSH=$SSH_BINARY;
+[ -n "$SCP_BINARY" ] && alias scp=$SCP_BINARY;
