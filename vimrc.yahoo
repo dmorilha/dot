@@ -1,0 +1,20 @@
+
+set formatprg=~/dot/code-style.sh
+
+if has("autocmd")
+	augroup filetypedetect
+
+	autocmd BufRead,BufNewFile *.yicf setfiletype yicf
+
+	autocmd BufNewFile,BufRead *.ros setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
+	autocmd BufNewFile,BufRead *.php setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
+	autocmd BufNewFile,BufRead *.inc setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+	autocmd BufNewFile,BufRead *.in setlocal noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
+
+	autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 formatprg="~/dot/bin/beautify -a -p -n -i 4"
+	autocmd BufNewFile,BufRead *.json setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 formatprg="~/dot/bin/beautify -a -p -n -i 4"
+	autocmd BufNewFile,BufRead *.mustache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 formatprg="~/dot/bin/beautify -a -p -n -i 4"
+
+	augroup END
+endif

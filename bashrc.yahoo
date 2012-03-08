@@ -15,7 +15,7 @@ if [ ${HOSTNAME/%.yahoo.com/} != ${HOSTNAME} ]; then
 	alias r3='time /home/y/bin/php -n -d open_basedir= -d extension=iconv.so -d extension=pdo.so -d extension=pdo_sqlite.so -d extension=hash.so /home/y/bin/r3';
 
 	if [ -n $YROOT_NAME ]; then
-		PS1="${ON_ERROR_CHANGE_COLOR}${USER/dmorilha/m}@${HOSTNAME/%.yahoo.com/}:\[\e[37m\]${YROOT_NAME}\[\e[30m\] \t \W \[\e[0m\]";
+		PS1="${ON_ERROR_CHANGE_COLOR}${USER/dmorilha/m}@${HOSTNAME/%.yahoo.com/}:\[${black}\]${YROOT_NAME}\[${white}\] \t \W \[\e[0m\]";
 	else
 		PS1="${ON_ERROR_CHANGE_COLOR}${USER/dmorilha/m}@${HOSTNAME/%.yahoo.com/} \t \W \[\e[0m\]";
 	fi;

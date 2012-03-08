@@ -30,6 +30,7 @@ set incsearch
 set hlsearch
 set complete=.,w,b,u,U,t,i,d
 set showmatch
+set formatprg=~/dot/code-style.sh
 
 filetype plugin indent on
 set fileencoding=utf8
@@ -74,13 +75,6 @@ endif
 if has("autocmd")
 	augroup filetypedetect
 
-	autocmd BufRead,BufNewFile *.yicf setfiletype yicf
-
-	autocmd BufNewFile,BufRead *.ros setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
-	autocmd BufNewFile,BufRead *.php setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
-	autocmd BufNewFile,BufRead *.inc setlocal filetype=php expandtab tabstop=4 softtabstop=4 shiftwidth=4
-
-	autocmd BufNewFile,BufRead *.in setlocal noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
 	augroup END
 endif
 
@@ -107,6 +101,7 @@ if has("localmap")
 	nmap j gj
 	nmap k gk
 
+	nmap <F10> gggqG
 endif
 
 function! Preserve(command)
@@ -125,4 +120,5 @@ endfunction
 
 filetype plugin on
 
+source $HOME/.vimrc.yahoo
 source $HOME/.vimrc.local

@@ -14,7 +14,7 @@ export PAGER=${LESS_BINARY};
 
 [ -r /etc/bashrc ] && source /etc/bashrc
 
-if [[ $($TPUT_BINARY sgr0 2>/dev/null) && $? -eq 0 ]]; then
+if [[ -not $($TPUT_BINARY sgr0 2>/dev/null) ]]; then
 
 	black=$($TPUT_BINARY setaf 0);
 	white=$($TPUT_BINARY setaf 7);
@@ -22,7 +22,7 @@ if [[ $($TPUT_BINARY sgr0 2>/dev/null) && $? -eq 0 ]]; then
 	background_red=$($TPUT_BINARY setab 1);
 	reset=$($TPUT_BINARY sgr0);
 
-	ON_ERROR_CHANGE_COLOR="\$(if [ \$? -ne 0 ]; then echo -ne \[${background_red}\]; else echo -ne \[${background_blue}\]; fi; echo -ne \[${black}\])";
+	ON_ERROR_CHANGE_COLOR="\$(if [ \$? -ne 0 ]; then echo -ne \[${background_red}\]; else echo -ne \[${background_blue}\]; fi; echo -ne \[${white}\])";
 
 	export PS1="${ON_ERROR_CHANGE_COLOR}${USER/dmorilha/m}@${HOSTNAME} \t \W \[${reset}\]";
 
@@ -47,10 +47,12 @@ alias more="less"
 alias rm="rm -i"
 alias rmfr="rm -fR"
 alias rmrf="rm -fR"
-alias l1="ls -1"
+alias l1="$(which ls) -1"
 alias ls="$ls -F"
 alias ll="$ls -lh"
 alias la="ll -a"
+
+which -s gmake || alias gmake="make";
 
 shopt -s checkwinsize
 shopt -s histappend
