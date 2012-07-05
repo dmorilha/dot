@@ -62,25 +62,21 @@ my_colors;
 export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
 export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
 
-ls="$(which ls)";
-
-if [[ "$(uname)" == 'Linux' ]]; then
-	ls="${ls} --color";
-else
-	ls="${ls} -G";
-fi;
+ls=${ls:-$(which ls;)};
+[ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} --color";
 
 alias rm="rm -i"
 
-alias l1="$(which ls) -1"
-alias ls="$ls -F"
-alias ll="$ls -lh"
-alias la="ll -a"
+alias l1="$(which ls) -1";
+alias ls="$ls -F";
+alias ll="$ls -lh";
+alias la="$ls -lah";
 
-shopt -s checkwinsize
-shopt -s histappend
-shopt -s extglob
-shopt -s extquote
-shopt -s cdspell
+shopt -s checkwinsize;
+shopt -s histappend;
+shopt -s extglob;
+shopt -s extquote;
+shopt -s cdspell;
 
 [ -r ~/.bashrc.local ] && source ~/.bashrc.local;
+[ "${TERM}" == 'urxt-256color' ] && export TERM="xterm-256color";
