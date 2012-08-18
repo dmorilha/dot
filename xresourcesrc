@@ -1,0 +1,74 @@
+dzen2.font: xft:Monaco:size=16
+dzen2.foreground: #dcdccc
+dzen2.background: #3f3f3f
+
+editor.menuBar: off
+editor.toolBar: off
+editor.verticalScrollBars: off
+editor.background: black
+editor.foreground: white
+editor.mode-line.AttributeBox: t
+
+emacs.menuBar: off
+emacs.toolBar: off
+emacs.verticalScrollBars: off
+emacs.background: black
+emacs.foreground: white
+emacs.mode-line.AttributeBox: t
+
+emacs23.menuBar: off
+emacs23.toolBar: off
+emacs23.verticalScrollBars: off
+emacs23.background: black
+emacs23.foreground: white
+emacs23.mode-line.AttributeBox: t
+
+! urxvt
+urxvt.perl-ext-common: font-size
+urxvt.background: black
+urxvt.foreground: white
+urxvt.scrollBar: false
+urxvt.saveLines: 0
+urxvt.scrollWithBuffer: false
+urxvt.font: xft:Monaco:size=16
+urxvt.termName: xterm-256color
+urxvt.keysym.C-Up: perl:font-size:increase
+urxvt.keysym.C-Down: perl:font-size:decrease
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+! black
+!urxvt.color0:
+!urxvt.color8:
+
+! red
+!urxvt.color1:
+!urxvt.color9:
+
+! green
+!urxvt.color2:
+!urxvt.color10:
+
+! yellow
+!urxvt.color3:
+!urxvt.color11:
+
+! blue
+urxvt.color4: steelblue
+urxvt.color12: steelblue
+
+! purple
+!urxvt.color5:
+!urxvt.color13:
+
+! cyan
+!urxvt.color6:
+!urxvt.color14:
+
+! white
+!urxvt.color7:
+!urxvt.color15:

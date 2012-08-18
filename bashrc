@@ -1,8 +1,5 @@
 umask 022;
 
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
-
 my_colors () {
 	fg_norm_black='[22;30m'
 	bg_norm_black='[22;40m'
@@ -79,4 +76,3 @@ shopt -s extquote;
 shopt -s cdspell;
 
 [ -r ~/.bashrc.local ] && source ~/.bashrc.local;
-[ "${TERM}" == 'urxt-256color' ] && export TERM="xterm-256color";
