@@ -54,13 +54,18 @@ my_colors () {
 	nocolors='[0m'
 }
 
+font-size() {
+	font='xft:Monaco';
+	printf '\33]50;%s%d\007' "${font}:size=" $1;
+}
+
 my_colors;
 
 export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
 export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
 
 ls=${ls:-$(which ls;)};
-[ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} --color";
+[ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} -G";
 
 alias rm="rm -i"
 
