@@ -29,6 +29,32 @@ my_colors () {
 	fg_bold_green='[01;32m'
 	bg_bold_green='[01;42m'
 
+	fg_norm_yellow='[22;33m'
+	bg_norm_yellow='[22;43m'
+	fg_bold_yellow='[01;33m'
+	bg_bold_yellow='[01;43m'
+
+	fg_norm_blue='[22;34m'
+	bg_norm_blue='[22;44m'
+	fg_bold_blue='[01;34m'
+	bg_bold_blue='[01;44m'
+
+	fg_norm_cyan='[22;36m'
+	bg_norm_cyan='[22;46m'
+	fg_bold_cyan='[01;36m'
+	bg_bold_cyan='[01;46m'
+
+	fg_norm_white='[22;37m'
+	bg_norm_white='[22;47m'
+	fg_bold_white='[01;37m'
+	bg_bold_white='[01;47m'
+
+	fg_norm_def='[22;39m'
+	bg_norm_def='[22;49m'
+	fg_bold_def='[01;39m'
+	bg_bold_def='[01;49m'
+
+	nocolors='[0m'
 }
 
 font-size() {
