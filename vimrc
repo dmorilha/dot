@@ -73,6 +73,10 @@ endif
 
 if has("autocmd")
 	augroup filetypedetect
+<<<<<<< HEAD
+=======
+	autocmd BufNewFile,BufRead *.js setlocal makeprg=jslint\ %
+>>>>>>> bc96f22348b79b5ff7e95c49dd4b0016df9b1eef
 	augroup END
 endif
 
@@ -98,6 +102,11 @@ if has("localmap")
 
 	nmap j gj
 	nmap k gk
+<<<<<<< HEAD
+=======
+
+	nmap <silent> <F5> :w<CR>:make<CR>:cw<CR>:copen<CR>
+>>>>>>> bc96f22348b79b5ff7e95c49dd4b0016df9b1eef
 endif
 
 function! Preserve(command)

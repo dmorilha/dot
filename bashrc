@@ -1,8 +1,11 @@
 umask 022;
 
+<<<<<<< HEAD
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
+=======
+>>>>>>> bc96f22348b79b5ff7e95c49dd4b0016df9b1eef
 my_colors () {
 	fg_norm_black='[22;30m'
 	bg_norm_black='[22;40m'
@@ -28,6 +31,7 @@ my_colors () {
 	bg_norm_green='[22;42m'
 	fg_bold_green='[01;32m'
 	bg_bold_green='[01;42m'
+<<<<<<< HEAD
 
 	fg_norm_yellow='[22;33m'
 	bg_norm_yellow='[22;43m'
@@ -84,4 +88,61 @@ shopt -s extglob
 shopt -s extquote
 shopt -s cdspell
 
+=======
+
+	fg_norm_yellow='[22;33m'
+	bg_norm_yellow='[22;43m'
+	fg_bold_yellow='[01;33m'
+	bg_bold_yellow='[01;43m'
+
+	fg_norm_blue='[22;34m'
+	bg_norm_blue='[22;44m'
+	fg_bold_blue='[01;34m'
+	bg_bold_blue='[01;44m'
+
+	fg_norm_cyan='[22;36m'
+	bg_norm_cyan='[22;46m'
+	fg_bold_cyan='[01;36m'
+	bg_bold_cyan='[01;46m'
+
+	fg_norm_white='[22;37m'
+	bg_norm_white='[22;47m'
+	fg_bold_white='[01;37m'
+	bg_bold_white='[01;47m'
+
+	fg_norm_def='[22;39m'
+	bg_norm_def='[22;49m'
+	fg_bold_def='[01;39m'
+	bg_bold_def='[01;49m'
+
+	nocolors='[0m'
+}
+
+font-size() {
+	font='xft:Monaco';
+	printf '\33]50;%s%d\007' "${font}:size=" $1;
+}
+
+my_colors;
+
+export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
+export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
+
+ls=${ls:-$(which ls;)};
+[ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} -G";
+
+alias rm="rm -i"
+
+alias l1="$(which ls) -1";
+alias ls="$ls -F";
+alias ll="$ls -lh";
+alias la="$ls -lah";
+
+shopt -s checkwinsize;
+shopt -s histappend;
+shopt -s extglob;
+shopt -s extquote;
+shopt -s cdspell;
+
+>>>>>>> bc96f22348b79b5ff7e95c49dd4b0016df9b1eef
 [ -r ~/.bashrc.local ] && source ~/.bashrc.local;
