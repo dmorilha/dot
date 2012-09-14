@@ -1,9 +1,6 @@
-﻿if v:progname =~? "evim"
-	finish
-endif
-
-colorscheme koehler
+﻿colorscheme koehler
 colorscheme blackboard
+
 syntax on
 
 set nocompatible
@@ -37,6 +34,9 @@ set fileencoding=utf8
 
 set hidden
 
+abbreviate E NERDTree
+abbreviate ls BufExplorer
+
 if has("vertsplit")
 	set cmdwinheight=10
 endif
@@ -47,7 +47,6 @@ endif
 
 if has("gui_running")
 	colorscheme desert
-	"let moria_style='black'
 	set guioptions=ic
 	set shell=/usr/bin/uxterm
 	set shellcmdflag=-e
@@ -74,7 +73,6 @@ endif
 
 if has("autocmd")
 	augroup filetypedetect
-
 	augroup END
 endif
 
@@ -100,25 +98,25 @@ if has("localmap")
 
 	nmap j gj
 	nmap k gk
-
-	nmap <F10> gggqG
 endif
 
 function! Preserve(command)
-  "Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
+	"Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
 
-  "Do the business:
-  execute a:command
+	"Do the business:
+	execute a:command
 
   "Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
+	let @/=_s
+	call cursor(l, c)
 endfunction
 
 filetype plugin on
+
+command! -bar -nargs=* -complete=file SVN enew! | set ft=diff | read ! svn diff -r HEAD <args>
 
 source $HOME/.vimrc.yahoo
 source $HOME/.vimrc.local

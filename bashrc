@@ -1,58 +1,82 @@
-export PATH='/sbin:/usr/sbin:/usr/local/bin:/bin:/usr/bin';
-
 umask 022;
 
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
-export LESS_BINARY=$(which less);
-export VIM_BINARY=${VIM_BINARY:-$(which vim)};
-export SSH_BINARY=${SSH_BINARY:-$(which ssh)};
-export TPUT_BINARY=$(which tput);
+my_colors () {
+	fg_norm_black='[22;30m'
+	bg_norm_black='[22;40m'
+	fg_bold_black='[01;30m'
+	bg_bold_black='[01;40m'
 
-export PAGER=${LESS_BINARY};
+	fg_norm_grey=$fg_norm_black
+	bg_norm_black=$bg_norm_black
+	fg_bold_grey=$fg_bold_black
+	bg_bold_black=$bg_bold_black
 
-[ -r /etc/bashrc ] && source /etc/bashrc
+	fg_norm_red='[22;31m'
+	bg_norm_red='[22;41m'
+	fg_bold_red='[01;31m'
+	bg_bold_red='[01;41m'
 
-if [[ -not $($TPUT_BINARY sgr0 2>/dev/null) ]]; then
+	fg_norm_magenta='[22;35m'
+	bg_norm_magenta='[22;45m'
+	fg_bold_magenta='[01;35m'
+	bg_bold_magenta='[01;45m'
 
-	black=$($TPUT_BINARY setaf 0);
-	white=$($TPUT_BINARY setaf 7);
-	background_blue=$($TPUT_BINARY setab 4);
-	background_red=$($TPUT_BINARY setab 1);
-	reset=$($TPUT_BINARY sgr0);
+	fg_norm_green='[22;32m'
+	bg_norm_green='[22;42m'
+	fg_bold_green='[01;32m'
+	bg_bold_green='[01;42m'
 
-	ON_ERROR_CHANGE_COLOR="\$(if [ \$? -ne 0 ]; then echo -ne \[${background_red}\]; else echo -ne \[${background_blue}\]; fi; echo -ne \[${white}\])";
+	fg_norm_yellow='[22;33m'
+	bg_norm_yellow='[22;43m'
+	fg_bold_yellow='[01;33m'
+	bg_bold_yellow='[01;43m'
 
-	export PS1="${ON_ERROR_CHANGE_COLOR}${USER/dmorilha/m}@${HOSTNAME} \t \W \[${reset}\]";
+	fg_norm_blue='[22;34m'
+	bg_norm_blue='[22;44m'
+	fg_bold_blue='[01;34m'
+	bg_bold_blue='[01;44m'
 
+	fg_norm_cyan='[22;36m'
+	bg_norm_cyan='[22;46m'
+	fg_bold_cyan='[01;36m'
+	bg_bold_cyan='[01;46m'
+
+	fg_norm_white='[22;37m'
+	bg_norm_white='[22;47m'
+	fg_bold_white='[01;37m'
+	bg_bold_white='[01;47m'
+
+	fg_norm_def='[22;39m'
+	bg_norm_def='[22;49m'
+	fg_bold_def='[01;39m'
+	bg_bold_def='[01;49m'
+
+	nocolors='[0m'
+}
+
+my_colors;
+
+export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
+
+export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
+
+ls="$(which ls)";
+
+if [[ "$(uname)" == 'Linux' ]]; then
+	ls="${ls} --color";
 else
-	export PS1="${USER/dmorilha/m}@${HOSTNAME} \t \W$ ";
-
+	ls="${ls} -G";
 fi;
 
-[ -r "$HOME/.bashrc.yahoo" ] && source "$HOME/.bashrc.yahoo"
-[ -r "${HOME}/.bashrc.local" ] && source "${HOME}/.bashrc.local"
-
-export PATH="~/bin:${PATH}";
-
-if [ $(uname) == 'Linux' ]; then
-	ls='ls --color';
-else
-	ls='ls -G';
-fi;
-
-alias :q=exit
-alias more="less"
 alias rm="rm -i"
-alias rmfr="rm -fR"
-alias rmrf="rm -fR"
+
 alias l1="$(which ls) -1"
 alias ls="$ls -F"
 alias ll="$ls -lh"
 alias la="ll -a"
-
-which -s gmake || alias gmake="make";
 
 shopt -s checkwinsize
 shopt -s histappend
@@ -60,14 +84,4 @@ shopt -s extglob
 shopt -s extquote
 shopt -s cdspell
 
-if [ -n $VIM_BINARY ]; then
-	alias \
-		vi=$VIM_BINARY \
-		vim=$VIM_BINARY \
-		view="${VIM_BINARY} -R";
-
-	export SVN_EDITOR=${SNV_EDITOR:-${VIM_BINARY}}
-fi;
-
-[ -n "$SSH_BINARY" ] && alias ssh=$SSH_BINARY && export SVN_SSH=$SSH_BINARY;
-[ -n "$SCP_BINARY" ] && alias scp=$SCP_BINARY;
+[ -r ~/.bashrc.local ] && source ~/.bashrc.local;
