@@ -1,4 +1,4 @@
-﻿colorscheme koehler
+﻿"colorscheme koehler
 colorscheme blackboard
 
 syntax on
@@ -13,7 +13,6 @@ set tabstop=4
 set noexpandtab
 set undolevels=1000
 set showmode
-"set pastetoggle=<F11>
 set hidden
 set list
 set listchars=tab:»\ ,trail:·,eol:$
@@ -22,27 +21,26 @@ set smartcase
 set ignorecase
 set laststatus=2
 set encoding=utf8
-set autoindent
+"set autoindent
 set incsearch
 set hlsearch
 set complete=.,w,b,u,U,t,i,d
 set showmatch
-set formatprg=~/dot/code-style.sh
 
 filetype plugin indent on
 set fileencoding=utf8
 
 set hidden
 
-abbreviate E NERDTree
-abbreviate ls BufExplorer
+cabbr E NERDTree
+cabbr ls BufExplorer
 
 if has("vertsplit")
 	set cmdwinheight=10
 endif
 
 if has("statusline")
-	set statusline=%<%f\ %h%m%r%=\ %-10.(%l,%c%V%)\ %P\ %{&fenc}\ %{&fo}
+	set statusline=%<%f\ %h%m%r%=\%03.3b\ -\ 0x\%02.2B\ -\ %-12.(%l,%c%V%)\ %p%%\ of\ %L\ -\ %Y\ %{&fenc}\ %{&fo}
 endif
 
 if has("gui_running")
@@ -68,7 +66,9 @@ if has("linebreak")
 endif
 
 if has("folding")
-	"set foldmethod=indent
+	set foldmethod=indent
+	set foldnestmax=32
+	set foldlevel=32
 endif
 
 if has("autocmd")
@@ -100,7 +100,7 @@ if has("localmap")
 	nmap j gj
 	nmap k gk
 
-	nmap <silent> <F5> :w<CR>:make<CR>:cw<CR>:copen<CR>
+	"nmap <silent> <F5> :w<CR>:make<CR>:cw<CR>:copen<CR>
 endif
 
 function! Preserve(command)
