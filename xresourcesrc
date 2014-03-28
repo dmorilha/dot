@@ -1,4 +1,4 @@
-dzen2.font: xft:Monaco:size=16
+dzen2.font: xft:Monaco:size=12
 dzen2.foreground: #dcdccc
 dzen2.background: #3f3f3f
 
@@ -30,7 +30,7 @@ urxvt.foreground: white
 urxvt.scrollBar: false
 urxvt.saveLines: 0
 urxvt.scrollWithBuffer: false
-urxvt.font: xft:Monaco:size=16
+urxvt.font: xft:Monaco:size=12
 urxvt.termName: xterm-256color
 urxvt.keysym.C-Up: perl:font-size:increase
 urxvt.keysym.C-Down: perl:font-size:decrease
