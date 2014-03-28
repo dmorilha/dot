@@ -24,16 +24,21 @@ emacs23.foreground: white
 emacs23.mode-line.AttributeBox: t
 
 ! urxvt
-urxvt.perl-ext-common: font-size
-urxvt.background: black
-urxvt.foreground: white
-urxvt.scrollBar: false
-urxvt.saveLines: 0
-urxvt.scrollWithBuffer: false
-urxvt.font: xft:Monaco:size=12
-urxvt.termName: xterm-256color
-urxvt.keysym.C-Up: perl:font-size:increase
-urxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.background: black
+URxvt.foreground: white
+URxvt.scrollBar: false
+URxvt.saveLines: 0
+URxvt.scrollWithBuffer: false
+URxvt.font: xft:Monaco:size=12
+URxvt.termName: xterm-256color
+
+! blue
+URxvt.color4: steelblue
+URxvt.color12: steelblue
+
+URxvt.perl-ext-common: font-size
+URxvt.keysym.C-equal: perl:font-size:increase
+URxvt.keysym.C-minus: perl:font-size:decrease
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -41,34 +46,3 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
-! black
-!urxvt.color0:
-!urxvt.color8:
-
-! red
-!urxvt.color1:
-!urxvt.color9:
-
-! green
-!urxvt.color2:
-!urxvt.color10:
-
-! yellow
-!urxvt.color3:
-!urxvt.color11:
-
-! blue
-urxvt.color4: steelblue
-urxvt.color12: steelblue
-
-! purple
-!urxvt.color5:
-!urxvt.color13:
-
-! cyan
-!urxvt.color6:
-!urxvt.color14:
-
-! white
-!urxvt.color7:
-!urxvt.color15:
