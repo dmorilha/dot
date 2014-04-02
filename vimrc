@@ -1,5 +1,5 @@
 ﻿"colorscheme koehler
-colorscheme blackboard
+"colorscheme blackboard
 
 syntax on
 

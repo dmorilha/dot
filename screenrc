@@ -1,13 +1,14 @@
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
-defflow off 
-defscrollback 1000000
+defflow off
+defscrollback 1000
 hardstatus on
 hardstatus alwayslastline
-vbell off 
-defobuflimit 900 
-defsilence off 
-defmonitor off 
+vbell off
+defobuflimit 900
+defsilence off
+defmonitor off
 defutf8 on
-startup_message off 
+startup_message off
 attrcolor b "-b .I"
 multiuser on
+escape ^Bb
