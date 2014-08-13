@@ -25,6 +25,7 @@ set incsearch
 set hlsearch
 set complete=.,w,b,u,U,t,i,d
 set showmatch
+set t_Co=256
 
 filetype plugin indent on
 set fileencoding=utf8
