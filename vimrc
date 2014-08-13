@@ -1,5 +1,4 @@
-﻿"colorscheme koehler
-colorscheme blackboard
+﻿colorscheme molokai
 
 syntax on
 
