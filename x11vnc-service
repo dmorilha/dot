@@ -1,0 +1,9 @@
+#!/bin/sh
+while true; do
+	ARGS=$(ps -p $(pgrep X) -o args= | sed 's/^[^ ]\+ /-display /');
+	while -z ARGS; do
+		ARGS=$(ps -p $(pgrep X) -o args= | sed 's/^[^ ]\+ /-display /');
+		sleep 10;
+	done;
+	$(which x11vnc) -rfbauth ~/.x11vnc/passwd -scale 1/2 ${ARGS};
+done;
