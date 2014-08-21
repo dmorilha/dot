@@ -76,6 +76,7 @@ alias l1="$(which ls) -1";
 alias ls="$ls -F";
 alias ll="$ls -lh";
 alias la="$ls -lah";
+alias tmux="TERM=screen-256color-bce tmux"
 
 shopt -s checkwinsize;
 shopt -s histappend;
