@@ -66,6 +66,7 @@ my_colors;
 
 export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
 export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
+#export MAKEPKG="makepkg --skipinteg"
 
 ls=${ls:-$(which ls;)};
 [ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} -G";
@@ -76,12 +77,17 @@ alias l1="$(which ls) -1";
 alias ls="$ls -F";
 alias ll="$ls -lh";
 alias la="$ls -lah";
-alias tmux="TERM=screen-256color-bce tmux"
 
 shopt -s checkwinsize;
 shopt -s histappend;
 shopt -s extglob;
 shopt -s extquote;
 shopt -s cdspell;
+
+alias scanimage1='scanimage --source="Automatic Document Feeder" --format=tiff --mode=gray --resolution=300 --batch'
+alias scanimage2='scanimage --source="Automatic Document Feeder" --format=tiff --mode=gray --resolution=300 --batch --batch-double'
+alias scanimage3='scanimage --source="Automatic Document Feeder" --format=tiff --mode=gray --resolution=300 --batch --batch-double --batch-start=2'
+alias topdf='MAGICK_TMPDIR=/data convert -limit memory 32 -limit map 32 -density 200 -colorspace Gray -quality 60 -compress jpeg `echo \` ls out?.* ; ls out??.* \``  out.pdf'
+alias xvidenc='xvidenc -2p -p uhq'
 
 [ -r ~/.bashrc.local ] && source ~/.bashrc.local;

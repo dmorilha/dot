@@ -6,10 +6,10 @@ set nocompatible
 set backspace=indent,eol,start
 set textwidth=0
 set number
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-set noexpandtab
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
 set undolevels=1000
 set showmode
 set hidden
