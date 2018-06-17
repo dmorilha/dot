@@ -67,6 +67,8 @@ my_colors;
 export PROMPT_COMMAND="[ \$? -gt 0 ] && export PROMPT_COLOR='${fg_norm_red}${bg_norm_black}' || export PROMPT_COLOR='${fg_norm_cyan}${bg_norm_black}'";
 export PS1="\[\${PROMPT_COLOR}\]${USER/dmorilha/m}@${HOSTNAME} \t \W \[${nocolors}\]";
 #export MAKEPKG="makepkg --skipinteg"
+export DISPLAY=:0
+export VISUAL=vim
 
 ls=${ls:-$(which ls;)};
 [ "$(uname)" == 'Linux' ] && ls="${ls} --color" || ls="${ls} -G";

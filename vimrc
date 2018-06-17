@@ -120,3 +120,5 @@ endfunction
 filetype plugin on
 
 command! -bar -nargs=* -complete=file SVN enew! | set ft=diff | read ! svn diff -r HEAD <args>
+
+source $HOME/.vimrc.local

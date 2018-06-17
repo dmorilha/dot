@@ -46,3 +46,5 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
+Xcursor.theme: Bluecurve
+Xcursor.size: 64
